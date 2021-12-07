@@ -40,6 +40,15 @@ app.get("/:index", bodyParser.json(), (req, res) => {
     res.send(JSON.stringify(toDoList[index]));
 });
 
+//DELETA UM OBJETO NO TODOLIST
+app.delete("/delete/:index", bodyParser.json(), (req, res) => {
+    let { index } = req.params;
+
+    delete toDoList[index];
+
+    res.send("Post deletado com sucesso");
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
 });
