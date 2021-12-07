@@ -6,6 +6,10 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+const generateId = () => {
+    return Math.random().toString(26).substr(2, 9);
+};
+
 let toDoList = [
     {
         id: generateId(),
@@ -13,11 +17,20 @@ let toDoList = [
     }
 ];
 
-app.get("/", (req, res) => {});
+// RETORNA TODOS OBJETOS TODOLIST
+app.get("/", (req, res) => {
+    res.send(JSON.stringify(toDoList));
+});
 
-const generateId = () => {
-    return Math.random().toString(26).substr(2, 9);
-};
+app.post("/new", bodyParser.json(), (req, res) => {
+    let id = generateId();
+
+    let { title } = req.body;
+
+    toDoList.push({ id, title });
+
+    res.send("Post adicionado com sucesso");
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
