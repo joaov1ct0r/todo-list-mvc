@@ -1,0 +1,24 @@
+{
+  "name": "toDoList",
+  "version": "1.0.0",
+  "description": "<h2>Sobre</h2>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaov1ct0r/toDoList.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaov1ct0r/toDoList/issues"
+  },
+  "homepage": "https://github.com/joaov1ct0r/toDoList#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
