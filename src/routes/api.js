@@ -4,6 +4,8 @@ const router = express.Router();
 
 const bodyParser = require("body-parser");
 
+const toDoList = require("../model/posts");
+
 // RETORNA TODOS OBJETOS TODOLIST
 router.get("/", (req, res) => {
     res.send(JSON.stringify(toDoList));
