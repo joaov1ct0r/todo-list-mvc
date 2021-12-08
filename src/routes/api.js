@@ -8,16 +8,14 @@ const toDoList = require("../model/posts");
 
 // RETORNA TODOS OBJETOS TODOLIST
 router.get("/", (req, res) => {
-    res.send(JSON.stringify(toDoList));
+    res.send(JSON.stringify(toDoList.allToDo()));
 });
 
 // INSERI UM NOVO OBJETO NO TODOLIST
 router.post("/new", bodyParser.json(), (req, res) => {
-    let id = generateId();
-
     let { title } = req.body;
 
-    toDoList.push({ id, title });
+    toDoList.insertToDo({ title });
 
     res.send("Post adicionado com sucesso");
 });
@@ -26,7 +24,7 @@ router.post("/new", bodyParser.json(), (req, res) => {
 router.delete("/delete/:index", bodyParser.json(), (req, res) => {
     let { index } = req.params;
 
-    delete toDoList[index];
+    delete toDoList.deleteToDo(index);
 
     res.send("Post deletado com sucesso");
 });
