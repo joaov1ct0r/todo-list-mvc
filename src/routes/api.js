@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 router.post("/new", bodyParser.json(), (req, res) => {
     let { title } = req.body;
 
-    toDoList.insertToDo({ title });
+    toDoList.insertToDo(title);
 
     res.send("Post adicionado com sucesso");
 });
