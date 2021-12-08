@@ -33,13 +33,6 @@ app.post("/new", bodyParser.json(), (req, res) => {
     res.send("Post adicionado com sucesso");
 });
 
-// RETORNA UM OBJETO EM ESPECIFICO NO TODOLIST
-app.get("/:index", bodyParser.json(), (req, res) => {
-    let { index } = req.params;
-
-    res.send(JSON.stringify(toDoList[index]));
-});
-
 //DELETA UM OBJETO NO TODOLIST
 app.delete("/delete/:index", bodyParser.json(), (req, res) => {
     let { index } = req.params;
