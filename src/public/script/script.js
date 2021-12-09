@@ -20,8 +20,8 @@ function updateToDo() {
 
             toDo.forEach(element => {
                 let toDoElement = `<li class="toDoValue" id="${element.id}">
-                                        ${element.title}<input class='checkbox' type='checkbox'>
-                                    </li>`;
+                                    ${element.title}<input class='checkbox' type='checkbox'>
+                                  </li>`;
 
                 toDoElements += toDoElement;
             });

@@ -2,7 +2,7 @@ module.exports = {
     toDoList: [
         {
             id: "alkdfjs",
-            title: "Teste"
+            title: "Insira uma task"
         }
     ],
 
