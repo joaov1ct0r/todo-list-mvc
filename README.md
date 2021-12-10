@@ -2,7 +2,7 @@
 
 <h2>Sobre</h2>
 
-<p>O projeto to do list consiste em uma lista de tarefas, com 1 input de texto e um botão do tipo submit, ao inserir o texto no input e clicar no botão de submit, uma nova tarefa é criada com um checkbox ao lado para quando a tarefa for concluida.</p>
+<p>O projeto to do list consiste em uma lista de tarefas, com 1 input de texto e um botão do tipo submit, ao inserir o texto no input e clicar no botão de submit, a tarefa é enviada para o back-end usando a rota /new com o metodo POST, quando no back-end ela é adicionada ao array posts pelo metodo insertToDo, que cria um novo objeto no array de objetos toDoList, apos, a função updateToDo é executada atualiando todos os objetos do array toDoList e os mostrando na tela por meio do fetch usando a rota /all e o metodo GET,  uma nova tarefa é criada com um checkbox ao lado para quando a tarefa for concluida.</p>
 
 <h2>Link</h2>
 <a href='https://unruffled-turing-b06ef7.netlify.app/'>To do list</a>
