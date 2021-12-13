@@ -1,10 +1,5 @@
 module.exports = {
-    toDoList: [
-        {
-            id: "alkdfjs",
-            title: "Insira uma task"
-        }
-    ],
+    toDoList: [],
 
     // RETORNA TODOS OS TO-DO LIST
     allToDo() {
