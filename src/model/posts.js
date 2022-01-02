@@ -7,13 +7,20 @@ const db = mysql.createConnection({
     database: 'toDoList'
 });
 
-module.exports = {
-    toDoList: [],
+// RETORNA TODOS OS TO-DO LIST
+let allToDo = callback => {
+    let SQL = `SELECT * FROM toDo`;
 
-    // RETORNA TODOS OS TO-DO LIST
-    allToDo() {
-        return this.toDoList;
-    },
+    db.query(SQL, (err, result) => {
+        if (err) {
+            throw err;
+        }
+        callback(result);
+    });
+};
+
+module.exports = {
+    allToDo,
 
     // INSERI UM NOVO TO-DO LIST
     insertToDo(title) {

@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", updateToDo);
+document.addEventListener('DOMContentLoaded', updateToDo);
 
 function updateToDo() {
-    let url = "http://localhost:3000/api/all";
+    let url = 'http://localhost:3001/api/all';
 
     fetch(url)
         .then(res => {
@@ -12,43 +12,43 @@ function updateToDo() {
             return data;
         })
         .then(data => {
-            let toDoElements = "";
+            let toDoElements = '';
 
             let toDo = JSON.parse(JSON.stringify(data));
 
             console.log(toDo);
 
             toDo.forEach(element => {
-                let toDoElement = `<li class="toDoValue" id="${element.id}">
-                                    ${element.title}<input class='checkbox' type='checkbox'>
+                let toDoElement = `<li class="toDoValue" id="${element.toDoID}">
+                                    ${element.toDo}<input class='checkbox' type='checkbox'>
                                   </li>`;
 
                 toDoElements += toDoElement;
             });
 
-            const toDoList = document.getElementById("listItems");
+            const toDoList = document.getElementById('listItems');
 
             toDoList.innerHTML = toDoElements;
         });
 }
 
-const toDoSubmit = document.getElementById("toDoSubmit");
+const toDoSubmit = document.getElementById('toDoSubmit');
 
-toDoSubmit.addEventListener("click", submitToDo);
+toDoSubmit.addEventListener('click', submitToDo);
 
 function submitToDo() {
-    let toDoInput = document.getElementById("toDoInput");
+    let toDoInput = document.getElementById('toDoInput');
 
     let title = toDoInput.value;
 
     console.log(title);
 
-    const url = "http://localhost:3000/api/new";
+    const url = 'http://localhost:3000/api/new';
 
     const options = {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify({ title }),
-        headers: { "Content-type": "application/json; charset=UTF-8" }
+        headers: { 'Content-type': 'application/json; charset=UTF-8' }
     };
 
     fetch(url, options).then(res => {
@@ -56,6 +56,6 @@ function submitToDo() {
 
         updateToDo();
 
-        toDoInput.value = "";
+        toDoInput.value = '';
     });
 }

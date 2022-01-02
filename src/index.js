@@ -1,16 +1,16 @@
-const express = require("express");
+const express = require('express');
 
-const path = require("path");
+const path = require('path');
 
-const PORT = 3000;
+const PORT = 3001;
 
 const app = express();
 
-const routes = require("./routes/api");
+const routes = require('./routes/api');
 
-app.use("/api", routes);
+app.use('/api', routes);
 
-app.use("/", express.static(path.join(__dirname, "public")));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
