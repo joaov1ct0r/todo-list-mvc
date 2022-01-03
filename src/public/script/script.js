@@ -20,7 +20,7 @@ function updateToDo() {
 
             toDo.forEach(element => {
                 let toDoElement = `<li class="toDoValue" id="${element.toDoID}">
-                                    ${element.toDo}<input class='checkbox' type='checkbox'>
+                                    ${element.toDo}<button>Editar</button><button>Remover</button>
                                   </li>`;
 
                 toDoElements += toDoElement;
@@ -59,3 +59,21 @@ function submitToDo() {
         toDoInput.value = '';
     });
 }
+
+const toDoList = document.getElementById('listItems');
+
+toDoList.addEventListener('click', event => {
+    if (event.target.tagName === 'INPUT') {
+        const checkbox = event.target;
+
+        const li = checkbox.parentNode;
+
+        const ul = li.parentNode;
+
+        for (let index in checkbox) {
+            if (checkbox[index].checked === true) {
+                ul.removeChild(li[index]);
+            }
+        }
+    }
+});
