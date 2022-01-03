@@ -32,7 +32,9 @@ router.post('/new', bodyParser.json(), (req, res) => {
 router.delete('/delete/:index', bodyParser.json(), (req, res) => {
     let { index } = req.params;
 
-    delete db.deleteToDo(index);
+    let request = db.deleteToDo(index, function (result) {
+        console.log(result);
+    });
 
     res.send('Post deletado com sucesso');
 });

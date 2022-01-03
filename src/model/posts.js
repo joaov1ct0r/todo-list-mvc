@@ -31,17 +31,22 @@ let insertToDo = (title, callback) => {
     });
 };
 
+// DELETA UM TO-DO LIST
+let deleteToDo = (index, callback) => {
+    let SQL = `DELETE FROM toDo WHERE toDoID = ?`;
+
+    db.query(SQL, index, (err, result) => {
+        if (err) {
+            throw err;
+        }
+        callback(result);
+    });
+};
+
 module.exports = {
     allToDo,
 
     insertToDo,
 
-    // DELETA UM TO-DO LIST
-    deleteToDo(index) {
-        delete this.toDoList[index];
-    }
-};
-
-const generateId = () => {
-    return Math.random().toString(26).substr(2, 9);
+    deleteToDo
 };
