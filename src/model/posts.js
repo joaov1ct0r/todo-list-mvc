@@ -43,10 +43,26 @@ let deleteToDo = (index, callback) => {
     });
 };
 
+// EDITA UM TO-DO LIST
+let editToDo = (title, index, callback) => {
+    let SQL = `UPDATE toDo SET toDo = ? WHERE toDoID = ?`;
+
+    let params = [title, index];
+
+    db.query(SQL, params, (err, result) => {
+        if (err) {
+            throw err;
+        }
+        callback(result);
+    });
+};
+
 module.exports = {
     allToDo,
 
     insertToDo,
 
-    deleteToDo
+    deleteToDo,
+
+    editToDo
 };
