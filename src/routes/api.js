@@ -28,6 +28,19 @@ router.post('/new', bodyParser.json(), (req, res) => {
     res.send('Post adicionado com sucesso');
 });
 
+// EDITA UM TO-DO LIST
+router.put('/edit/:index', bodyParser.json(), (req, res) => {
+    let { title } = req.body;
+
+    let { index } = req.params;
+
+    let request = db.editToDo(title, index, function (result) {
+        console.log(result);
+    });
+
+    res.send('Post editado com sucesso');
+});
+
 //DELETA UM OBJETO NO db
 router.delete('/delete/:index', bodyParser.json(), (req, res) => {
     let { index } = req.params;
