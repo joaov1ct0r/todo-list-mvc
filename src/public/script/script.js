@@ -43,7 +43,7 @@ function submitToDo() {
 
     console.log(title);
 
-    const url = 'http://localhost:3000/api/new';
+    const url = 'http://localhost:3001/api/new';
 
     const options = {
         method: 'POST',
@@ -63,17 +63,30 @@ function submitToDo() {
 const toDoList = document.getElementById('listItems');
 
 toDoList.addEventListener('click', event => {
-    if (event.target.tagName === 'INPUT') {
-        const checkbox = event.target;
+    if (event.target.tagName === 'BUTTON') {
+        const button = event.target;
 
-        const li = checkbox.parentNode;
+        const li = button.parentNode;
 
         const ul = li.parentNode;
 
-        for (let index in checkbox) {
-            if (checkbox[index].checked === true) {
-                ul.removeChild(li[index]);
-            }
+        if (button.textContent == 'Remover') {
+            const url = `http://localhost:3001/api/delete/${li.id}`;
+
+            const options = {
+                method: 'DELETE',
+                body: null,
+                headers: { 'Content-type': 'application/json; charset=UTF-8' }
+            };
+
+            fetch(url, options).then(res => {
+                console.log(res);
+            });
+
+            ul.removeChild(li);
+
+            updateToDo();
+        } else if (button.textContent == 'Editar') {
         }
     }
 });
