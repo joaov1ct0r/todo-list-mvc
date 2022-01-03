@@ -19,13 +19,22 @@ let allToDo = callback => {
     });
 };
 
+// INSERI UM NOVO TO-DO LIST
+let insertToDo = (title, callback) => {
+    let SQL = `INSERT INTO toDo (toDo) VALUES (?) `;
+
+    db.query(SQL, title, (err, result) => {
+        if (err) {
+            throw err;
+        }
+        callback(result);
+    });
+};
+
 module.exports = {
     allToDo,
 
-    // INSERI UM NOVO TO-DO LIST
-    insertToDo(title) {
-        this.toDoList.push({ id: generateId(), title });
-    },
+    insertToDo,
 
     // DELETA UM TO-DO LIST
     deleteToDo(index) {
