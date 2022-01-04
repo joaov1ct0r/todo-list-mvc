@@ -87,6 +87,41 @@ toDoList.addEventListener('click', event => {
 
             updateToDo();
         } else if (button.textContent == 'Editar') {
+            let input = document.createElement('input');
+
+            input.type = 'text';
+
+            input.value = li.textContent;
+
+            input.classList.add('editInput');
+
+            li.insertBefore(input, li.lastChild);
+
+            button.textContent = 'Salvar';
+
+            button.addEventListener('click', () => {
+                editToDo();
+            });
+
+            function editToDo() {
+                const url = `http://localhost:3001/api/edit/${li.id}`;
+
+                const title = input.value;
+
+                const options = {
+                    method: 'PUT',
+                    body: JSON.stringify({ title }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                };
+
+                fetch(url, options).then(res => {
+                    console.log(res);
+
+                    updateToDo();
+                });
+            }
         }
     }
 });
