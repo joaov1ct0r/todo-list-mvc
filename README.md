@@ -41,15 +41,27 @@
 
 <h2>MODO DE USO</h2>
 
-<p>FAÇA O DOWNLOADS DO REPOSITORIO OU USE<br><code>git clone git@github.com:joaov1ct0r/toDoList.git</code></p>
+<h3>GIT</h3>
 
-<p>APOS TER OS ARQUIVOS EM SUA MAQUINA INICIE O SERVIDOR WEB NO SEU TERMINAL COM<br><code>node src/index.js</code></p>
+<p>FAÇA O DOWNLOADS DO REPOSITORIO OU USE:<br><code>git clone git@github.com:joaov1ct0r/toDoList.git</code></p>
 
-<p>INICIE TAMBEM O SEU SERVIDOR MYSQL COM <br><code>sudo systemctl start mysql</code></p>
+<h3>MySQL</h3>
 
-<p>APOS ISSO ABRA O NAVEGADOR E ENTRE COM A SEGUINTE URL<br><code>http://localhost:3001/</code></p>
+<p>INICIE O SEU SERVIDOR MYSQL COM O COMANDO:<br><code>sudo systemctl start mysql</code></p>
 
-<p>A PAGINA PARA A LISTA DE TAREFAS SERA CRIADO E ESTARA PRONTA PARA CRIAR, ARMAZENAR, EDITAR E EXCLUIR SUAS TAREFAS</p>
+<p>CRIE UM BANCO DE DADOS ATRAVES DO TERMINAL OU COM OUTRO GERENCIADOR DE BANCO DE DADOS, COM O NOME DE: toDoList COM O COMANDO:<br><code>CREATE DATABASE toDoList;</code></p>
+
+<p>APOS CRIAR O BANCO DE DADOS USE-O COM O COMANDO: <br><code>USE toDoList;</code>
+
+<p>CRIE UMA TABLE COM O NOME DE: toDo COM O COMANDO:<br><code>CREATE TABLE toDo (toDoID INT NOT NULL AUTO_INCREMENT, toDo VARCHAR(30) NOT NULL, PRIMARY KEY(toDoID);</code></p>
+
+<h3>SERVER</h3>
+
+<p>APOS TER OS ARQUIVOS EM SUA MAQUINA INICIE O SERVIDOR WEB NO SEU TERMINAL COM O COMANDO:<br><code>node src/index.js</code></p>
+
+<p>APOS ISSO ABRA O NAVEGADOR E ENTRE COM A SEGUINTE URL:<br><code>http://localhost:3001/</code></p>
+
+<p>A PAGINA PARA A LISTA DE TAREFAS SERA ABERTA E ESTARA PRONTA PARA CRIAR, ARMAZENAR, EDITAR E EXCLUIR SUAS TAREFAS</p>
 
 <h2>Link para projeto apenas front-end</h2>
 <a href='https://unruffled-turing-b06ef7.netlify.app/'>To do list</a>
