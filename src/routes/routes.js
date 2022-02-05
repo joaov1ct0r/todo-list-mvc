@@ -11,11 +11,7 @@ var db = require('../model/db');
 router.use(cors());
 
 // RETORNA TODOS OBJETOS db
-router.get('/all', (req, res) => {
-    let request = db.allToDo(function (result) {
-        res.send(JSON.stringify(result));
-    });
-});
+router.get('/all', controller.allToDo);
 
 // INSERI UM NOVO OBJETO NO db
 router.post('/new', bodyParser.json(), (req, res) => {
