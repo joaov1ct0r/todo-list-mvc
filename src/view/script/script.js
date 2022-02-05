@@ -70,7 +70,7 @@ toDoList.addEventListener('click', event => {
 
         const ul = li.parentNode;
 
-        if (button.textContent == 'Remover') {
+        if (button.textContent === 'Remover') {
             const url = `http://localhost:3001/api/delete/${li.id}`;
 
             const options = {
@@ -86,12 +86,12 @@ toDoList.addEventListener('click', event => {
             ul.removeChild(li);
 
             updateToDo();
-        } else if (button.textContent == 'Editar') {
+        } else if (button.textContent === 'Editar') {
             let input = document.createElement('input');
 
             input.type = 'text';
 
-            input.value = li.textContent;
+            input.value = '';
 
             input.classList.add('editInput');
 
