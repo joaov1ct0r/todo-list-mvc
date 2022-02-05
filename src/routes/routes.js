@@ -22,14 +22,6 @@ router.post('/new', controller.insertToDo);
 router.put('/edit/:index', controller.editToDo);
 
 //DELETA UM OBJETO NO db
-router.delete('/delete/:index', bodyParser.json(), (req, res) => {
-    let { index } = req.params;
-
-    let request = db.deleteToDo(index, function (result) {
-        console.log(result);
-    });
-
-    res.send('Post deletado com sucesso');
-});
+router.delete('/delete/:index', controller.deleteToDo);
 
 module.exports = router;
