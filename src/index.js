@@ -6,7 +6,7 @@ const PORT = 3001;
 
 const app = express();
 
-const routes = require('./routes/api');
+const routes = require('./routes/routes');
 
 app.use('/api', routes);
 
