@@ -10,7 +10,7 @@ const routes = require('./routes/api');
 
 app.use('/api', routes);
 
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'view')));
 
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
