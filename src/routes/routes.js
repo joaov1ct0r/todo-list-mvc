@@ -19,17 +19,7 @@ router.get('/all', controller.allToDo);
 router.post('/new', controller.insertToDo);
 
 // EDITA UM TO-DO LIST
-router.put('/edit/:index', bodyParser.json(), (req, res) => {
-    let { title } = req.body;
-
-    let { index } = req.params;
-
-    let request = db.editToDo(title, index, function (result) {
-        console.log(result);
-    });
-
-    res.send('Post editado com sucesso');
-});
+router.put('/edit/:index', controller.editToDo);
 
 //DELETA UM OBJETO NO db
 router.delete('/delete/:index', bodyParser.json(), (req, res) => {
