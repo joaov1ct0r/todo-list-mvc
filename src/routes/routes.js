@@ -16,15 +16,7 @@ router.use(cors());
 router.get('/all', controller.allToDo);
 
 // INSERI UM NOVO OBJETO NO db
-router.post('/new', bodyParser.json(), (req, res) => {
-    let { title } = req.body;
-
-    let request = db.insertToDo(title, function (result) {
-        console.log(result);
-    });
-
-    res.send('Post adicionado com sucesso');
-});
+router.post('/new', controller.insertToDo);
 
 // EDITA UM TO-DO LIST
 router.put('/edit/:index', bodyParser.json(), (req, res) => {
