@@ -2,15 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const cors = require('cors');
-
-const bodyParser = require('body-parser');
-
 const controller = require('../controllers/controller');
-
-var db = require('../model/db');
-
-router.use(cors());
 
 // RETORNA TODOS OBJETOS db
 router.get('/all', controller.allToDo);
