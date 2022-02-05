@@ -27,6 +27,16 @@ const user = {
 
             res.send('Post editado com sucesso');
         });
+    },
+
+    deleteToDo(req, res) {
+        let { index } = req.params;
+
+        db.deleteToDo(index, function (result) {
+            console.log(result);
+
+            res.send('Post deletado com sucesso');
+        });
     }
 };
 
