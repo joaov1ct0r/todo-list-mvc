@@ -15,6 +15,18 @@ const user = {
 
             res.send('Post adicionado com sucesso');
         });
+    },
+
+    editToDo(req, res) {
+        let { title } = req.body;
+
+        let { index } = req.params;
+
+        db.editToDo(title, index, function (result) {
+            console.log(result);
+
+            res.send('Post editado com sucesso');
+        });
     }
 };
 
