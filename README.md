@@ -20,9 +20,6 @@
   <li>body-parser</li>
   <p><code>npm install body-parser</code></p>
   <br>
-  <li>CORS</li>
-  <p><code>npm install cors</code></p>
-  <br>
 </ul>
 
 <h2>Sobre</h2>
