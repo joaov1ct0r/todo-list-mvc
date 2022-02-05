@@ -6,6 +6,8 @@ const cors = require('cors');
 
 const bodyParser = require('body-parser');
 
+const controller = require('../controllers/controller');
+
 var db = require('../model/db');
 
 router.use(cors());
