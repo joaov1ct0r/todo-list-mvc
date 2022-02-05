@@ -10,7 +10,7 @@ const app = express();
 
 const routes = require('./routes/routes');
 
-app.use('/api', routes);
+app.use('/api', bodyParser.json(), routes);
 
 app.use('/', express.static(path.join(__dirname, 'view')));
 
