@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const bodyParser = require('body-parser');
 
-var db = require('../model/posts');
+var db = require('../model/db');
 
 router.use(cors());
 
