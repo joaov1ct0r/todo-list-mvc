@@ -10,6 +10,11 @@ const user = {
     },
 
     insertToDo(req, res) {
+        let { error } = validateInsertToDo(req.body);
+
+        if (error) {
+            return res.status(400).send('Falha na autenticação');
+        }
         let { title } = req.body;
 
         db.insertToDo(title, function (result) {
