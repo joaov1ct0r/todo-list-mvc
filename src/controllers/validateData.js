@@ -7,3 +7,5 @@ let validateInsertToDo = data => {
 
     return schema.validate(data);
 };
+
+let validateEditToDo = data => {};
