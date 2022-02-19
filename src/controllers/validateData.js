@@ -15,3 +15,8 @@ let validateEditToDo = data => {
 
     return schema.validate(data);
 };
+
+module.exports = {
+    validateInsertToDo,
+    validateEditToDo
+};
