@@ -25,18 +25,21 @@ const insertToDo = (req, res) => {
 const editToDo = (req, res) => {
     let { error } = validateEditToDo(req.body);
 
-    if (error) {
-        return res.status(400).send('Falha na autenticação');
-    }
+    if (error) return res.status(400).send('Falha na autenticação');
+
     let { title } = req.body;
 
     let { index } = req.params;
 
-    db.editToDo(title, index, function (result) {
-        console.log(result);
+    const updateToDo = toDo.update({toDo: title}, {
+        where: {
+            toDoID: index
+        }
+    })
 
-        res.send('Post editado com sucesso');
-    });
+    if(!updateToDo) return res.status(400).send('Falha ao editar post');
+
+    res.send('Post editado com sucesso')
 };
 
 const deleteToDo = (req, res) => {
