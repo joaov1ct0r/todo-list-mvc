@@ -2,9 +2,10 @@ import sequelize from 'sequelize';
 
 let { Sequelize } = sequelize;
 
-const db = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
+const dbConnection = new Sequelize({
+    dialect: 'mysql',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
     password: 'password',
     database: 'toDoList'
 });
