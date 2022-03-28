@@ -31,15 +31,19 @@ const editToDo = (req, res) => {
 
     let { index } = req.params;
 
-    const updateToDo = toDo.update({toDo: title}, {
-        where: {
-            toDoID: index
-        }
-    })
-
-    if(!updateToDo) return res.status(400).send('Falha ao editar post');
-
-    res.send('Post editado com sucesso')
+    try {
+        const updateToDo = toDo.update({toDo: title}, {
+            where: {
+                toDoID: index
+            }
+        })
+    
+        if(!updateToDo) return res.status(400).send('Falha ao editar post');
+    
+        res.send('Post editado com sucesso')
+    } catch (error) {
+        throw error
+    }
 };
 
 const deleteToDo = (req, res) => {
