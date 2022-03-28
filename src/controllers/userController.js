@@ -1,11 +1,11 @@
-import db from '../model/userModel.js';
+import toDo from '../model/userModel.js';
 
 import { validateInsertToDo, validateEditToDo } from './validateData';
 
 const allToDo = (req, res) => {
-    db.allToDo(function (result) {
-        res.send(JSON.stringify(result));
-    });
+    const toDos = toDo.findAll();
+
+    res.send(JSON.stringify(toDos));
 };
 
 const insertToDo = (req, res) => {
