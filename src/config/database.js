@@ -2,14 +2,16 @@ import sequelize from 'sequelize';
 
 let { Sequelize } = sequelize;
 
-const dbConnection = new Sequelize({
-    dialect: 'mysql',
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-    port: process.env.DB_PORT
-});
+const dbConnection = new Sequelize(
+    process.env.DB_DATABASE,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+        dialect: 'mysql',
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT
+    }
+);
 
 try {
     await dbConnection.authenticate();
