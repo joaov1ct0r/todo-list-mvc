@@ -11,16 +11,15 @@ const allToDo = (req, res) => {
 const insertToDo = (req, res) => {
     let { error } = validateInsertToDo(req.body);
 
-    if (error) {
-        return res.status(400).send('Falha na autenticação');
-    }
+    if (error) return res.status(400).send('Falha na autenticação');
+
     let { title } = req.body;
 
-    db.insertToDo(title, function (result) {
-        console.log(result);
+    const newTodo = await toDo.create({toDo: title})
 
-        res.send('Post adicionado com sucesso');
-    });
+    if(!newTodo) return res.status(400).send('Falha ao adicionar novo Post')
+
+    res.send('Post adicionado com sucesso')
 };
 
 const editToDo = (req, res) => {
