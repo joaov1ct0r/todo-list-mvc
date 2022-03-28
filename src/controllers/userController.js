@@ -15,11 +15,15 @@ const insertToDo = (req, res) => {
 
     let { title } = req.body;
 
-    const newTodo = await toDo.create({toDo: title})
+    try {
+        const newTodo = await toDo.create({toDo: title})
 
-    if(!newTodo) return res.status(400).send('Falha ao adicionar novo Post')
-
-    res.send('Post adicionado com sucesso')
+        if(!newTodo) return res.status(400).send('Falha ao adicionar novo Post')
+    
+        res.send('Post adicionado com sucesso') 
+    } catch (error) {
+       throw error; 
+    }
 };
 
 const editToDo = (req, res) => {
