@@ -1,6 +1,6 @@
 import toDo from '../model/userModel.js';
 
-import { validateInsertToDo, validateEditToDo } from './validateData';
+import { validateInsertToDo, validateEditToDo } from './validateData.js';
 
 const allToDo = async (req, res) => {
     try {
