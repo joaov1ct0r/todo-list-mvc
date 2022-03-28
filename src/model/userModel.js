@@ -1,5 +1,7 @@
 import { DataTypes } from 'sequelize';
 
+import dbConnection from '../config/database.js';
+
 // RETORNA TODOS OS TO-DO LIST
 let allToDo = callback => {
     let SQL = `SELECT * FROM toDo`;
