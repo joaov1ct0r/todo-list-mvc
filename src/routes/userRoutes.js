@@ -5,7 +5,7 @@ import {
     insertToDo,
     editToDo,
     deleteToDo
-} from '../controllers/controller.js';
+} from '../controllers/userController.js';
 
 const userRouter = express.Router();
 
