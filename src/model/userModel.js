@@ -22,6 +22,10 @@ const toDo = dbConnection.define(
     }
 );
 
+toDo.sync();
+
+export default toDo;
+
 // RETORNA TODOS OS TO-DO LIST
 let allToDo = callback => {
     let SQL = `SELECT * FROM toDo`;
