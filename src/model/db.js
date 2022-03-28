@@ -1,4 +1,6 @@
-let mysql = require('mysql2');
+import sequelize from 'sequelize';
+
+let { Sequelize } = sequelize;
 
 const db = mysql.createConnection({
     host: '127.0.0.1',
