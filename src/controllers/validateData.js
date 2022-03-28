@@ -1,4 +1,4 @@
-let Joi = require('@hapi/joi');
+import Joi from '@hapi/joi';
 
 let validateInsertToDo = data => {
     let schema = Joi.object({
@@ -16,7 +16,4 @@ let validateEditToDo = data => {
     return schema.validate(data);
 };
 
-module.exports = {
-    validateInsertToDo,
-    validateEditToDo
-};
+export { validateInsertToDo, validateEditToDo };
