@@ -45,15 +45,19 @@ const editToDo = (req, res) => {
 const deleteToDo = (req, res) => {
     let { index } = req.params;
 
-    const deleteToDo = await toDo.destroy({
-        where: {
-            toDoID: index
-        }
-    })
-
-    if(!deleteToDo) return res.status(400).send('Falha ao deletar Post')
-
-    res.send('Post deletado com sucesso')
+    try {
+        const deleteToDo = await toDo.destroy({
+            where: {
+                toDoID: index
+            }
+        })
+    
+        if(!deleteToDo) return res.status(400).send('Falha ao deletar Post')
+    
+        res.send('Post deletado com sucesso')  
+    } catch (error) {
+        throw error
+    }
 };
 
 export { allToDo, insertToDo, editToDo, deleteToDo };
