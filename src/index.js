@@ -2,7 +2,7 @@ import express from 'express';
 
 import bodyParser from 'body-parser';
 
-import userRoutes from './routes/userRoutes.js';
+import userRouter from './routes/userRoutes.js';
 
 import path from 'path';
 
@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-app.use('/api', bodyParser.json(), routes);
+app.use('/api', bodyParser.json(), userRouter);
 
 app.use('/', express.static(path.join(__dirname, 'view')));
 
