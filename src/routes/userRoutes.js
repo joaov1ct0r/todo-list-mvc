@@ -1,19 +1,20 @@
-const express = require('express');
+import express from 'express';
 
-const router = express.Router();
+import {
+    allToDo,
+    insertToDo,
+    editToDo,
+    deleteToDo
+} from '../controllers/controller.js';
 
-const controller = require('../controllers/controller');
+const userRouter = express.Router();
 
-// RETORNA TODOS OBJETOS db
-router.get('/all', controller.allToDo);
+userRouter.get('/all', allToDo);
 
-// INSERI UM NOVO OBJETO NO db
-router.post('/new', controller.insertToDo);
+userRouter.post('/new', insertToDo);
 
-// EDITA UM TO-DO LIST
-router.put('/edit/:index', controller.editToDo);
+userRouter.put('/edit/:index', editToDo);
 
-//DELETA UM OBJETO NO db
-router.delete('/delete/:index', controller.deleteToDo);
+userRouter.delete('/delete/:index', deleteToDo);
 
-module.exports = router;
+export default userRouter;
