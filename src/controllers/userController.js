@@ -3,9 +3,15 @@ import toDo from '../model/userModel.js';
 import { validateInsertToDo, validateEditToDo } from './validateData';
 
 const allToDo = (req, res) => {
-    const toDos = toDo.findAll();
+    try {
+        const toDos = toDo.findAll();
+        
+        if(!toDos) return res.status(400).send('Falha ao enviar toDos');
 
-    res.send(JSON.stringify(toDos));
+        res.send(JSON.stringify(toDos));
+    } catch (error) {
+        throw error;
+    }
 };
 
 const insertToDo = (req, res) => {
