@@ -1,3 +1,5 @@
+import { DataTypes } from 'sequelize';
+
 // RETORNA TODOS OS TO-DO LIST
 let allToDo = callback => {
     let SQL = `SELECT * FROM toDo`;
