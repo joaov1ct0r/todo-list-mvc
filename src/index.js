@@ -1,19 +1,23 @@
-const express = require('express');
+import express from 'express';
 
-const path = require('path');
+import bodyParser from 'body-parser';
 
-const bodyParser = require('body-parser');
+import userRoutes from './routes/userRoutes.js';
 
-const PORT = 3001;
+import path from 'path';
+
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 
 const app = express();
-
-const routes = require('./routes/routes');
 
 app.use('/api', bodyParser.json(), routes);
 
 app.use('/', express.static(path.join(__dirname, 'view')));
 
-app.listen(PORT, () => {
-    console.log(`Server running on port: ${PORT}`);
+app.listen(process.env.SERVER_PORT, () => {
+    console.log('Server running');
 });
