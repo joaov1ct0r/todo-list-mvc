@@ -1,4 +1,4 @@
-import db from '../model/db.js';
+import db from '../model/userModel.js';
 
 import { validateInsertToDo, validateEditToDo } from './validateData';
 
