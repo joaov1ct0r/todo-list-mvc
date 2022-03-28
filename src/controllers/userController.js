@@ -45,11 +45,15 @@ const editToDo = (req, res) => {
 const deleteToDo = (req, res) => {
     let { index } = req.params;
 
-    db.deleteToDo(index, function (result) {
-        console.log(result);
+    const deleteToDo = await toDo.destroy({
+        where: {
+            toDoID: index
+        }
+    })
 
-        res.send('Post deletado com sucesso');
-    });
+    if(!deleteToDo) return res.status(400).send('Falha ao deletar Post')
+
+    res.send('Post deletado com sucesso')
 };
 
 export { allToDo, insertToDo, editToDo, deleteToDo };
