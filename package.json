@@ -1,17 +1,26 @@
 {
-  "name": "toDoList",
+  "name": "todo-list",
   "version": "1.0.0",
-  "description": "<h2>Sobre</h2>",
+  "author": "github.com/joaov1ct0r",
+  "type": "module",
+  "description": "Lista de tarefas feita em HTML, CSS, Javascript, NodeJS(Express) API Rest e MySQL",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joaov1ct0r/toDoList.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "todo",
+    "html5",
+    "css3",
+    "javascript",
+    "nodejs",
+    "mysql",
+    "todo-list"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/joaov1ct0r/toDoList/issues"
@@ -21,7 +30,6 @@
     "@hapi/joi": "^17.1.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "flatted": "^3.2.4",
     "mysql2": "^2.3.3"
   }
 }
