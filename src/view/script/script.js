@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', updateToDo);
 
 function updateToDo() {
-    let url = 'http://localhost:3001/api/all';
+    let url = 'http://localhost:3000/api/all';
 
     fetch(url)
         .then(res => {
@@ -43,7 +43,7 @@ function submitToDo() {
 
     console.log(title);
 
-    const url = 'http://localhost:3001/api/new';
+    const url = 'http://localhost:3000/api/new';
 
     const options = {
         method: 'POST',
@@ -71,7 +71,7 @@ toDoList.addEventListener('click', event => {
         const ul = li.parentNode;
 
         if (button.textContent === 'Remover') {
-            const url = `http://localhost:3001/api/delete/${li.id}`;
+            const url = `http://localhost:3000/api/delete/${li.id}`;
 
             const options = {
                 method: 'DELETE',
@@ -104,7 +104,7 @@ toDoList.addEventListener('click', event => {
             });
 
             function editToDo() {
-                const url = `http://localhost:3001/api/edit/${li.id}`;
+                const url = `http://localhost:3000/api/edit/${li.id}`;
 
                 const title = input.value;
 
