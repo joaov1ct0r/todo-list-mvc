@@ -20,6 +20,15 @@
   <li>body-parser</li>
   <p><code>npm install body-parser</code></p>
   <br>
+  <li>@Hapi/Joi</li>
+  <p><code>npm install @hapi/joi</code></p>
+  <br>
+  <li>dotenv</li>
+  <p><code>npm install dotenv</code></p>
+  <br>
+  <li>Sequelize</li>
+  <p><code>npm install sequelize</code></p>
+  <br>
 </ul>
 
 <h2>Sobre</h2>
@@ -39,10 +48,17 @@
 <h2>MODO DE USO</h2>
 
 <h3>GIT</h3>
+<hr>
 
 <p>FAÇA O DOWNLOADS DO REPOSITORIO OU USE:<br><code>git clone git@github.com:joaov1ct0r/toDoList.git</code></p>
 
+<h3>DEPENDENCIAS</h3>
+<hr>
+
+<p>INSTALE TODAS AS DEPENDENCIAS COM O COMANDO: <code>npm install</code></p>
+
 <h3>MySQL</h3>
+<hr>
 
 <p>INICIE O SEU SERVIDOR MYSQL COM O COMANDO:<br><code>sudo systemctl start mysql</code></p>
 
@@ -53,10 +69,11 @@
 <p>CRIE UMA TABLE COM O NOME DE: toDo COM O COMANDO:<br><code>CREATE TABLE toDo (toDoID INT NOT NULL AUTO_INCREMENT, toDo VARCHAR(30) NOT NULL, PRIMARY KEY(toDoID);</code></p>
 
 <h3>SERVER</h3>
+<hr>
 
-<p>APOS TER OS ARQUIVOS EM SUA MAQUINA INICIE O SERVIDOR WEB NO SEU TERMINAL COM O COMANDO:<br><code>node src/index.js</code></p>
+<p>APOS TER OS ARQUIVOS EM SUA MAQUINA INICIE O SERVIDOR WEB NO SEU TERMINAL COM O COMANDO:<br><code>npm start</code></p>
 
-<p>APOS ISSO ABRA O NAVEGADOR E ENTRE COM A SEGUINTE URL:<br><code>http://localhost:3001/</code></p>
+<p>APOS ISSO ABRA O NAVEGADOR E ENTRE COM A SEGUINTE URL:<br><code>http://localhost:3000/</code></p>
 
 <p>A PAGINA PARA A LISTA DE TAREFAS SERA ABERTA E ESTARA PRONTA PARA CRIAR, ARMAZENAR, EDITAR E EXCLUIR SUAS TAREFAS</p>
 
