@@ -52,6 +52,20 @@
 
 <p>FAÇA O DOWNLOADS DO REPOSITORIO OU USE:<br><code>git clone git@github.com:joaov1ct0r/toDoList.git</code></p>
 
+<h3>VARIAVEIS DE AMBIENTE</h3>
+<hr>
+
+<p>CRIE UM ARQUIVO .env NO DIRETORIO PRINCIPAL DO PROJETO E ALTERE O VALOR DAS VARIAVEIS PARA SEUS DADOS</p>
+
+<ul>
+<li>SERVER_PORT = PORTA DO SEU SERVIDOR</li>
+<li>DB_HOST = HOST DO SEU DB</li>
+<li>DB_USER = USUARIO DO SEU DB</li>
+<li>DB_PASSWORD = SENHA DO SEU DB</li>
+<li>DB_DATABASE = NOME DO SEU DB</li>
+<li>DB_PORT = PORTA DO SEU DB</li>
+</ul>
+
 <h3>DEPENDENCIAS</h3>
 <hr>
 
