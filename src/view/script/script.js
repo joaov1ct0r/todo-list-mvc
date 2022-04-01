@@ -1,47 +1,41 @@
-document.addEventListener('DOMContentLoaded', updateToDo);
+document.addEventListener('DOMContentLoaded', async () => {
+    updateToDo()
+});
 
 function updateToDo() {
     let url = 'http://localhost:3000/api/all';
 
-    fetch(url)
-        .then(res => {
-            let data = res.json();
+    const response = await fetch(url);
 
-            console.log(data);
+    const data = await response.json();
 
-            return data;
-        })
-        .then(data => {
-            let toDoElements = '';
+    let toDoElements = '';
 
-            let toDo = JSON.parse(JSON.stringify(data));
+    let toDo = JSON.parse(JSON.stringify(data));
 
-            console.log(toDo);
+    toDo.forEach(element => {
+        let toDoElement = `<li class="toDoValue" id="${element.toDoID}">
+        ${element.toDo}<button>Editar</button><button>Remover</button>
+        </li>`;
 
-            toDo.forEach(element => {
-                let toDoElement = `<li class="toDoValue" id="${element.toDoID}">
-                                    ${element.toDo}<button>Editar</button><button>Remover</button>
-                                  </li>`;
+        toDoElements += toDoElement;
+    });
 
-                toDoElements += toDoElement;
-            });
+    const toDoList = document.getElementById('listItems');
 
-            const toDoList = document.getElementById('listItems');
-
-            toDoList.innerHTML = toDoElements;
-        });
+    toDoList.innerHTML = toDoElements;
 }
 
 const toDoSubmit = document.getElementById('toDoSubmit');
 
-toDoSubmit.addEventListener('click', submitToDo);
+toDoSubmit.addEventListener('click', async () => {
+
+});
 
 function submitToDo() {
     let toDoInput = document.getElementById('toDoInput');
 
     let title = toDoInput.value;
-
-    console.log(title);
 
     const url = 'http://localhost:3000/api/new';
 
@@ -51,13 +45,11 @@ function submitToDo() {
         headers: { 'Content-type': 'application/json; charset=UTF-8' }
     };
 
-    fetch(url, options).then(res => {
-        console.log(res);
+    const response = await fetch(url, options);
 
-        updateToDo();
+    toDoInput.value = '';
 
-        toDoInput.value = '';
-    });
+    updateToDo();
 }
 
 const toDoList = document.getElementById('listItems');
