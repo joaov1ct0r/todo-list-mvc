@@ -29,10 +29,6 @@ function updateToDo() {
 const toDoSubmit = document.getElementById('toDoSubmit');
 
 toDoSubmit.addEventListener('click', async () => {
-
-});
-
-function submitToDo() {
     let toDoInput = document.getElementById('toDoInput');
 
     let title = toDoInput.value;
@@ -47,14 +43,22 @@ function submitToDo() {
 
     const response = await fetch(url, options);
 
-    toDoInput.value = '';
+    if(response.status === 200) {
+        toDoInput.value = '';
 
-    updateToDo();
-}
+        alert('Tarefa enviado com sucesso!')
+
+        updateToDo();
+    } else {
+        toDoInput.value = '';
+
+        alert('Falha ao enviar tarefa')
+    }
+});
 
 const toDoList = document.getElementById('listItems');
 
-toDoList.addEventListener('click', event => {
+toDoList.addEventListener('click', async event => {
     if (event.target.tagName === 'BUTTON') {
         const button = event.target;
 
@@ -71,13 +75,17 @@ toDoList.addEventListener('click', event => {
                 headers: { 'Content-type': 'application/json; charset=UTF-8' }
             };
 
-            fetch(url, options).then(res => {
-                console.log(res);
-            });
+            const response = await fetch(url, options);
 
-            ul.removeChild(li);
+            if(response.status === 200) {
+                ul.removeChild(li);
 
-            updateToDo();
+                alert('Tarefa deletada com sucessso!')
+
+                updateToDo();
+            } else alert('Falha ao deletar tarefa!')
+
+            
         } else if (button.textContent === 'Editar') {
             let input = document.createElement('input');
 
@@ -91,11 +99,7 @@ toDoList.addEventListener('click', event => {
 
             button.textContent = 'Salvar';
 
-            button.addEventListener('click', () => {
-                editToDo();
-            });
-
-            function editToDo() {
+            button.addEventListener('click', async () => {
                 const url = `http://localhost:3000/api/edit/${li.id}`;
 
                 const title = input.value;
@@ -108,12 +112,16 @@ toDoList.addEventListener('click', event => {
                     }
                 };
 
-                fetch(url, options).then(res => {
-                    console.log(res);
+                const response = await fetch(url, options);
+
+                if(response.status === 200) {
+                    alert('Tarefa editada com sucesso!');
 
                     updateToDo();
-                });
-            }
+                } else {
+                    alert('Falha ao editar tarefa!')
+                } 
+            });
         }
     }
 });
