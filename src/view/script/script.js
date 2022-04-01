@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    updateToDo()
+    updateToDo();
 });
 
-function updateToDo() {
+async function updateToDo() {
     let url = 'http://localhost:3000/api/all';
 
     const response = await fetch(url);
@@ -43,16 +43,16 @@ toDoSubmit.addEventListener('click', async () => {
 
     const response = await fetch(url, options);
 
-    if(response.status === 200) {
+    if (response.status === 200) {
         toDoInput.value = '';
 
-        alert('Tarefa enviado com sucesso!')
+        alert('Tarefa enviado com sucesso!');
 
         updateToDo();
     } else {
         toDoInput.value = '';
 
-        alert('Falha ao enviar tarefa')
+        alert('Falha ao enviar tarefa');
     }
 });
 
@@ -77,15 +77,13 @@ toDoList.addEventListener('click', async event => {
 
             const response = await fetch(url, options);
 
-            if(response.status === 200) {
+            if (response.status === 200) {
                 ul.removeChild(li);
 
-                alert('Tarefa deletada com sucessso!')
+                alert('Tarefa deletada com sucessso!');
 
                 updateToDo();
-            } else alert('Falha ao deletar tarefa!')
-
-            
+            } else alert('Falha ao deletar tarefa!');
         } else if (button.textContent === 'Editar') {
             let input = document.createElement('input');
 
@@ -114,13 +112,13 @@ toDoList.addEventListener('click', async event => {
 
                 const response = await fetch(url, options);
 
-                if(response.status === 200) {
+                if (response.status === 200) {
                     alert('Tarefa editada com sucesso!');
 
                     updateToDo();
                 } else {
-                    alert('Falha ao editar tarefa!')
-                } 
+                    alert('Falha ao editar tarefa!');
+                }
             });
         }
     }
