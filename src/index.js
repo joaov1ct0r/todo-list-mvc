@@ -1,7 +1,5 @@
 import 'dotenv/config';
 
-import cors from 'cors';
-
 import express from 'express';
 
 import bodyParser from 'body-parser';
@@ -18,7 +16,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-app.use('/api', cors(), bodyParser.json(), userRouter);
+app.use('/api', bodyParser.json(), userRouter);
 
 app.use('/', express.static(path.join(__dirname, 'view')));
 
