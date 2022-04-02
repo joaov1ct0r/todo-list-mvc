@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "github.com/joaov1ct0r",
   "type": "module",
-  "description": "Lista de tarefas feita em HTML, CSS, Javascript, NodeJS(Express) API Rest e MySQL",
+  "description": "Sistema de lista de tarefas com arquitetura MVC com front-end feito em HTML, CSS e Javascript e back-end em NodeJS utilizando Express e validando dados com @Hapi/Joi e sequelize para armazenar os dados no banco de dados MySQL.",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js"
